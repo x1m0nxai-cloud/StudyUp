@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <title>StudyUp – Daily Schedule Tracker</title>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&family=Unbounded:wght@700;900&display=swap" rel="stylesheet">
 <style>
@@ -535,6 +539,7 @@ $('lang').onchange = e => { lang = e.target.value; try { localStorage.setItem('d
 $('theme').onchange = e => { theme = e.target.value; try { localStorage.setItem('daybook-theme2', theme); } catch (x) {} prefs(); };
 setInterval(() => { if (tab === 'day' && isToday()) render(); }, 60000);
 prefs(); show('day'); intro();
+try { if ('serviceWorker' in navigator && location.protocol.startsWith('http')) navigator.serviceWorker.register('sw.js'); } catch (e) {}
 </script>
 </body>
 </html>
